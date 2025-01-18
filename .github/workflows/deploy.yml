@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 22
+          bun-version: latest
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies with Bun
+        run: bun install
 
       - name: Build Storybook
-        run: npm run build-storybook
+        run: bun run build-storybook
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -38,19 +38,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
+          bun-version: latest
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies with Bun
+        run: bun install
 
       - name: Build package
-        run: npm run build
+        run: bun run build  # Asegúrate de que este script exista en tu package.json
 
       - name: Publish to npm
-        run: npm publish
+        run: bun publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
