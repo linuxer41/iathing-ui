@@ -1,14 +1,17 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		title?: string;
 		subtitle?: string;
+        elevated?: boolean;
 		children?: import('svelte').Snippet;
 	}
 
-	let { title = "", subtitle = "", children }: Props = $props();
+	let { title = "", subtitle = "", elevated = true, children, ...restProps }: Props = $props();
 </script>
 
-<div class="iathings-card">
+<div class="iathings-card iathings-border-radius" class:iathings-elevation={elevated} {...restProps}>
 	<div class="iathings-card-content">
 		<h3 class="iathings-card-title">{title}</h3>
 		<p class="iathings-card-subtitle">{subtitle}</p>
@@ -16,11 +19,10 @@
 	</div>
 </div>
 <style>
+    @import '../style/common.css';
 	.iathings-card {
     background-color: var(--surface-color);
-    border-radius: var(--border-radius-md);
     border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
     overflow: hidden;
 }
 

@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { createBubbler, stopPropagation } from 'svelte/legacy';
-
-	const bubble = createBubbler();
 	interface Props {
 		isOpen?: boolean;
-		onClose?: any;
+		onClose?: () => void;
 		children?: import('svelte').Snippet;
 	}
 
@@ -12,8 +9,10 @@
 </script>
 
 {#if isOpen}
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="modal-overlay" onclick={onClose}>
-		<div class="modal-content" onclick={stopPropagation(bubble('click'))}>
+		<div class="modal-content" onclick={(e) => e.stopPropagation()}>
 			{@render children?.()}
 		</div>
 	</div>

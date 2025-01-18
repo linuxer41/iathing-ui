@@ -1,13 +1,16 @@
-<!-- src/lib/components/Checkbox.svelte -->
+<!-- src/lib/components/ui/Checkbox.svelte -->
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from "svelte/elements";
+
+	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		checked?: boolean;
 		disabled?: boolean;
+		elevated?: boolean;
 		size?: "sm" | "md" | "lg"; // Tamaño del checkbox
 		onChange?: () => void;
 	}
 
-	let { checked = $bindable(false), disabled = false, size = "md", onChange = () => {} }: Props = $props();
+	let { checked = $bindable(false), disabled = false, elevated = true, size = "md", onChange = () => {}, ...restProps }: Props = $props();
 </script>
 
 <label class="checkbox">
@@ -18,10 +21,11 @@
 		disabled={disabled}
 		class="input"
 	/>
-	<span class="checkmark size-{size}"></span>
+	<span class="checkmark size-{size} iathings-border-radius iathings-elevation" class:iathings-elevation={elevated} {...restProps}></span>
 </label>
 
 <style lang="scss">
+	@import '../style/common.css';
 	.checkbox {
 		display: inline-flex;
 		align-items: center;
@@ -39,7 +43,6 @@
 		background-color: var(--background-color);
 		transition: all 0.2s ease;
 		position: relative;
-		border-radius: var(--border-radius)
 	}
 
 	/* Tamaños */

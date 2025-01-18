@@ -1,16 +1,11 @@
-// export { default as Button } from "./components/Button.svelte";
-// export { default as Input } from "./components/Input.svelte";
-// export { default as Card } from "./components/Card.svelte";
-// export { default as Navbar } from "./components/Navbar.svelte";
-// export { default as Modal } from "./components/Modal.svelte";
-// export { default as Toast } from "./components/Toast.svelte";
-// export { default as Table } from "./components/Table.svelte";
-// export { default as Tabs } from "./components/Tabs.svelte";
-
-import Button from "./components/Button.svelte";
-import Input from "./components/Input.svelte";
-
-export {
-    Button,
-    Input
-}
+export { default as Button } from "./components/ui//Button.svelte";
+export { default as CheckBox } from "./components/ui//CheckBox.svelte";
+export { default as Input } from "./components/ui//Input.svelte";
+export { default as Card } from "./components/ui//Card.svelte";
+export { default as Modal } from "./components/ui//Modal.svelte";
+export { default as Toggle } from "./components/ui//Switch.svelte";
+export { default as Toast } from "./components/ui//Toast.svelte";
+export { default as Tabs } from "./components/ui//Tabs.svelte";
+export { default as Label } from "./components/ui//Label.svelte";
+export { default as Separator } from "./components/ui//Separator.svelte";
+export { default as Layout } from "./components/ui//Layout.svelte";

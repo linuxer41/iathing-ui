@@ -1,58 +1,71 @@
-# create-svelte
+# iathings-ui
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+**iathings-ui** es una librería de componentes UI desarrollada por [IATHINGS](https://iathings.com) para uso interno en sus productos. Sin embargo, es de uso libre para cualquier persona bajo la licencia MIT.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Características
 
-## Creating a project
+- **Componentes personalizables**: Diseñados para ser altamente configurables.
+- **Basado en Svelte y TypeScript**: Moderno, eficiente y con tipado seguro.
+- **Licencia MIT**: Libre para usar, modificar y distribuir.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Instalación
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Para instalar la librería, ejecuta el siguiente comando:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install iathings-ui
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Uso
 
-## Building
+Importa los componentes en tu proyecto de Svelte:
 
-To build your library:
+```svelte
+<script>
+  import { Button, Card, CheckBox, Input, Label, Layout, Modal, Separator, Switch, Tabs, Toast } from "iathings-ui";
+</script>
 
-```bash
-npm run package
+<!-- Ejemplo de uso de algunos componentes -->
+<Button variant="primary">Haz clic aquí</Button>
+
+<Card>
+  <h2>Título de la tarjeta</h2>
+  <p>Contenido de la tarjeta.</p>
+</Card>
+
+<Input placeholder="Escribe algo..." />
+
+<Tabs tabs={[{ label: "Pestaña 1", content: "Contenido 1" }, { label: "Pestaña 2", content: "Contenido 2" }]} />
 ```
 
-To create a production version of your showcase app:
+## Componentes Disponibles
 
-```bash
-npm run build
-```
+- **Button**: Botón personalizable con variantes y tamaños.
+- **Card**: Tarjeta para agrupar contenido relacionado.
+- **CheckBox**: Casilla de verificación para opciones binarias.
+- **Input**: Campo de entrada de texto personalizable.
+- **Label**: Etiqueta para formularios o textos descriptivos.
+- **Layout**: Componentes de diseño como contenedores, grids y flexbox.
+- **Modal**: Ventana modal para mostrar contenido emergente.
+- **Separator**: Línea divisoria para separar secciones.
+- **Switch**: Interruptor para alternar entre estados.
+- **Tabs**: Pestañas para organizar contenido en secciones.
+- **Toast**: Notificaciones emergentes temporales.
 
-You can preview the production build with `npm run preview`.
+## Storybook
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Explora todos los componentes y sus variantes en nuestro [Storybook](https://iathings.github.io/iathings-ui).
 
-## Publishing
+## Contribución
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+Si deseas contribuir a este proyecto, sigue estos pasos:
 
-To publish your library to [npm](https://www.npmjs.com):
+1. Haz un fork del repositorio.
+2. Crea una rama con tu nueva funcionalidad (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -m 'Añade nueva funcionalidad'`).
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request.
 
-```bash
-npm publish
-```
+## Licencia
+
+Este proyecto está bajo la licencia [MIT](LICENSE). Puedes usarlo libremente en tus proyectos personales o comerciales.

@@ -1,0 +1,7 @@
+.iathings-elevation {
+    box-shadow: var(--box-shadow);
+}
+
+.iathings-border-radius {
+    border-radius: var(--border-radius)
+}

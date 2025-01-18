@@ -1,13 +1,16 @@
-<!-- src/lib/components/Toggle.svelte -->
+<!-- src/lib/components/ui/Toggle.svelte -->
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from "svelte/elements";
+
+	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		checked?: boolean;
 		disabled?: boolean;
+		elevated?: boolean;
 		size?: "sm" | "md" | "lg"; // Tamaño del toggle
 		onChange?: () => void;
 	}
 
-	let { checked = $bindable(false), disabled = false, size = "md", onChange = () => {} }: Props = $props();
+	let { checked = $bindable(false), disabled = false, size = "md", elevated = false, onChange = () => {}, ...restProps }: Props = $props();
 </script>
 
 <label class="toggle-container">
@@ -18,10 +21,11 @@
 		disabled={disabled}
 		class="input"
 	/>
-	<span class="toggle  size-{size}"></span>
+	<span class="toggle  size-{size} iathings-border-radius" class:iathings-elevation={elevated} {...restProps}></span>
 </label>
 
 <style>
+	@import '../style/common.css';
 	.toggle-container {
 		display: inline-flex;
 		align-items: center;
@@ -40,7 +44,6 @@
 		background-color: var(--surface-color);
 		border: 1px solid var(--border-color);
 		transition: all 0.2s ease;
-		border-radius: var(--border-radius)
 	}
 	/* Tamaños */
 	.size-sm {

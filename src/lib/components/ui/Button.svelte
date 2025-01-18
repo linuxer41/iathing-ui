@@ -5,6 +5,7 @@
 		variant?: "primary" | "secondary" | 'ghost' | "outline" | 'danger' | 'success' | 'warning';
 		size?: "sm" | "md" | "lg";
 		disabled?: boolean;
+        elevated?: boolean;
 		onClick?: any;
 		children?: import('svelte').Snippet;
 	}
@@ -13,6 +14,7 @@
 		variant = "primary",
 		size = "md",
 		disabled = false,
+        elevated = true,
 		onClick = () => {},
 		children,
         ...restProps
@@ -20,20 +22,18 @@
 </script>
 
 <button
-	class="btn btn-{variant} size-{size}"
+	class="btn btn-{variant} size-{size} iathings-border-radiu"
+    class:iathings-elevation={elevated}
 	class:btn-disabled={disabled}
 	
 	onclick={onClick}
 	disabled={disabled}
     {...restProps}
 >
-{#if children}
-	{@render children?.()}
-	{:else}
-		button
-{/if}
+    {@render children?.()}
 </button>
 <style>
+    @import '../style/common.css';
 	/* Estilos base del botón */
 .btn {
     padding: 0.75rem 1.5rem;
@@ -48,7 +48,7 @@
     gap: 8px;
     position: relative;
     overflow: hidden;
-	border-radius: var(--border-radius)
+	border-radius: var(--border-radius);
 }
 
 .btn:active {
@@ -148,7 +148,7 @@
 /* Tamaños */
 .size-sm {
     padding: 0.5rem 1rem;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .size-md {
@@ -158,7 +158,7 @@
 
 .size-lg {
     padding: 1rem 2rem;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 </style>

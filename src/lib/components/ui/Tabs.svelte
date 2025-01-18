@@ -1,4 +1,4 @@
-<!-- src/lib/components/Tabs.svelte -->
+<!-- src/lib/components/ui/Tabs.svelte -->
 <script lang="ts">
 	interface Tab {
 		label: string;
@@ -19,13 +19,15 @@
 	<div class="tabs-header">
 		{#each tabs as tab, index}
 			<button
-				class="tab {index === activeTab ? 'active' : ''} size-{size}"
-				onclick={() => {
+				class="tab size-{size}"
+				class:active={index === activeTab}
+				on:click={() => {
 					activeTab = index;
 					onChange(activeTab);
 				}}
 			>
 				{tab.label}
+				<div class="indicator {index === activeTab ? 'active' : 'inactive'}"></div>
 			</button>
 		{/each}
 	</div>
@@ -46,39 +48,57 @@
 	}
 
 	.tab {
-		padding: 0.5rem 1rem;
+		padding: 0.25rem 0.5rem;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
 		transition: all 0.2s ease;
 		color: var(--text-primary);
+		position: relative; /* Para posicionar el indicador */
 		border-radius: var(--border-radius);
-	}
-
-	.tab.active {
-		color: var(--primary-500);
-		border-bottom: 2px solid var(--primary-500);
 	}
 
 	.tab:hover {
 		background-color: var(--surface-color);
 	}
 
+	.tab.active {
+		color: var(--primary-500);
+	}
+
+	.indicator {
+		position: absolute;
+		bottom: -1px; /* Alineado con el borde inferior del contenedor */
+		right: 10%;
+		width: 80%;
+		/* transform: translateX(-10%); */
+		height: 2px;
+		background-color: var(--primary-500);
+		transition: opacity 0.2s ease;
+	}
+
+	.indicator.active {
+		opacity: 1;
+	}
+
+	.indicator.inactive {
+		opacity: 0;
+	}
 
 	/* Tamaños */
 	.size-sm {
 		font-size: 12px;
-		padding: 0.25rem 0.75rem;
+		padding: 0.125rem 0.25rem;
 	}
 
 	.size-md {
 		font-size: 14px;
-		padding: 0.5rem 1rem;
+		padding: 0.25rem 0.5rem;
 	}
 
 	.size-lg {
 		font-size: 16px;
-		padding: 0.75rem 1.25rem;
+		padding: 0.5rem 1rem;
 	}
 
 	.tabs-content {

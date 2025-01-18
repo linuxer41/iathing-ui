@@ -1,26 +1,30 @@
-<!-- src/lib/components/Input.svelte -->
+<!-- src/lib/components/ui/Input.svelte -->
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements";
 
 	interface Props extends HTMLInputAttributes {
 		inputSize?: "sm" | "md" | "lg"; // Tamaño del input
+		elevated?: boolean;
 	}
 
 	let {
 		value = $bindable(),
 		inputSize = 'md',
+		elevated = false,
 		class: className,
 		...restProps
 	}: Props = $props();
 </script>
 
 <input
-	class="input size-{inputSize} {className}"
+	class="input size-{inputSize} iathings-border-radius {className}"
+	class:iathings-elevation={elevated}
 	bind:value
 	{...restProps}
 />
 
 <style>
+	@import '../style/common.css';
 	/* Estilos base del input */
 	.input {
 		width: 100%;
@@ -28,7 +32,6 @@
 		background-color: var(--background-color);
 		color: var(--text-primary);
 		transition: all 0.2s ease;
-		border-radius: var(--border-radius)
 	}
 
 	/* Tamaños */

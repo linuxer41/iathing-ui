@@ -1,5 +1,5 @@
 <script module lang="ts">
-	import { Tabs } from '$lib/components/index.js';
+	import { Tabs } from '$lib/index.js';
   import { defineMeta } from '@storybook/addon-svelte-csf';
   import { fn } from '@storybook/test';
 

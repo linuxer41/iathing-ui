@@ -1,5 +1,5 @@
 <script module lang="ts">
-	import Toggle from '../lib/components/Toggle.svelte';
+	import { Toggle } from '$lib/index.js';
   import { defineMeta } from '@storybook/addon-svelte-csf';
   import { fn } from '@storybook/test';
 
@@ -12,6 +12,7 @@
       checked: { control: { type: 'boolean' } },
       disabled: { control: { type: 'boolean' } },
       size: { control: { type: 'select' }, options: ['sm', 'md', 'lg'] },
+      elevated: { control: { type: 'boolean' } },
       onChange: { action: 'onChange' },
     },
     args: {
