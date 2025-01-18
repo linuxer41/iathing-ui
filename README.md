@@ -54,7 +54,7 @@ Importa los componentes en tu proyecto de Svelte:
 
 ## Storybook
 
-Explora todos los componentes y sus variantes en nuestro [Storybook](https://iathings.github.io/iathings-ui).
+Explora todos los componentes y sus variantes en nuestro [Storybook](https://linuxer41.github.io/iathings-ui).
 
 ## Contribución
 

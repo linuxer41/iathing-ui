@@ -7,12 +7,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/linuxer41/iathing-ui.git"
+		"url": "https://github.com/linuxer41/iathings-ui.git"
 	},
 	"bugs": {
-		"url": "https://github.com/linuxer41/iathing-ui/issues"
+		"url": "https://github.com/linuxer41/iathings-ui/issues"
 	},
-	"homepage": "https://github.com/linuxer41/iathing-ui#readme",
+	"homepage": "https://github.com/linuxer41/iathings-ui#readme",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",

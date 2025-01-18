@@ -1,6 +1,6 @@
 <script>
 	import "$lib/styles/theme.css";
-	import { Button, Card, CheckBox, Input, Label, Layout, Modal, Separator, Switch, Tabs, Toast } from "$lib/index.js";
+	import { Button, Card, CheckBox, Input, Label, Layout, Modal, Separator, Switch, Tabs, Toast } from "$lib";
   </script>
   
   <!-- Ejemplo de uso de algunos componentes -->
