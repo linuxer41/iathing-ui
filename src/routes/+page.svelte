@@ -13,6 +13,6 @@
   
   <Input placeholder="Escribe algo..." />
   
-  <Tabs tabs={[{ label: "Pestaña 1", content: "Contenido 1" }, { label: "Pestaña 2", content: "Contenido 2" }]} />
+  <Tabs tabs={[{ label: "Pestaña 1", content: "Contenido 1" }, { label: "Pestaña 2", content: "Contenido 2 d" }]} />
 
   <Switch checked={true} />
