@@ -16,7 +16,7 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: latest  # Usa la última versión de Bun
+          bun-version: latest
 
       - name: Install dependencies with Bun
         run: bun install
@@ -45,6 +45,9 @@ jobs:
 
       - name: Install dependencies with Bun
         run: bun install
+
+      - name: Build package
+        run: bun run build  # Asegúrate de que este script exista en tu package.json
 
       - name: Publish to npm
         run: bun publish
