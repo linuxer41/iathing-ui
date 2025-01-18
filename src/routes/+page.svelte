@@ -1,17 +1,18 @@
 <script>
-    import "$lib/styles/theme.css"
-	import Button from "$lib/components/ui/ui/Button.svelte";
+	import "$lib/styles/theme.css";
+	import { Button, Card, CheckBox, Input, Label, Layout, Modal, Separator, Switch, Tabs, Toast } from "$lib/index.js";
+  </script>
+  
+  <!-- Ejemplo de uso de algunos componentes -->
+  <Button variant="primary">Haz clic aquí</Button>
+  
+  <Card>
+	<h2>Título de la tarjeta</h2>
+	<p>Contenido de la tarjeta.</p>
+  </Card>
+  
+  <Input placeholder="Escribe algo..." />
+  
+  <Tabs tabs={[{ label: "Pestaña 1", content: "Contenido 1" }, { label: "Pestaña 2", content: "Contenido 2" }]} />
 
-
-</script>
-<Button variant="primary" on:click={() => alert("Hola!")}>
-    Enviar
-</Button>
-
-<!-- <Navbar logo="/logo.png" links={[{ url: "/", text: "Inicio" }]} />
-<Card title="Mi Tarjeta">
-	<Input placeholder="Ingresa tu nombre" />
-	<Button variant="sendary" on:click={() => alert("Hola!")}>
-		Enviar
-	</Button>
-</Card> -->
+  <Switch checked={true} />

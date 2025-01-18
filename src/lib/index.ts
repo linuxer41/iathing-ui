@@ -9,3 +9,4 @@ export { default as Tabs } from "./components/ui//Tabs.svelte";
 export { default as Label } from "./components/ui//Label.svelte";
 export { default as Separator } from "./components/ui//Separator.svelte";
 export { default as Layout } from "./components/ui//Layout.svelte";
+export { default as Switch } from "./components/ui//Switch.svelte";
