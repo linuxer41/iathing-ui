@@ -1,18 +1,16 @@
 <script module lang="ts">
-	import { Toggle } from '$lib/index.js';
+	import { Switch } from '$lib/index.js';
   import { defineMeta } from '@storybook/addon-svelte-csf';
   import { fn } from '@storybook/test';
 
   // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
   const { Story } = defineMeta({
-    title: 'Example/Toggle',
-    component: Toggle,
+    title: 'Example/Switch',
+    component: Switch,
     tags: ['autodocs'],
     argTypes: {
       checked: { control: { type: 'boolean' } },
       disabled: { control: { type: 'boolean' } },
-      size: { control: { type: 'select' }, options: ['sm', 'md', 'lg'] },
-      elevated: { control: { type: 'boolean' } },
       onChange: { action: 'onChange' },
     },
     args: {
@@ -21,5 +19,4 @@
   });
 </script>
 
-<!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
- <Story name="Active" args={{ disabled: false, checked: true }}></Story>
+ <Story name="Primary" args={{ disabled: false, checked: true }}></Story>

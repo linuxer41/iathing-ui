@@ -9,8 +9,6 @@
 </script>
 
 {#if isOpen}
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="modal-overlay" onclick={onClose}>
 		<div class="modal-content" onclick={(e) => e.stopPropagation()}>
 			{@render children?.()}
@@ -32,10 +30,10 @@
 	}
 
 	.modal-content {
-		background-color: var(--background-color);
+		background-color: var(--iui-background-primary);
 		padding: 2rem;
-		border-radius: var(--border-radius-md);
-		box-shadow: var(--shadow-lg);
+		border-radius: var(--iui-radius-md);
+		box-shadow: var(--iui-shadow-lg);
 		max-width: 90%;
 		width: 400px;
 	}

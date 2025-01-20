@@ -10,3 +10,4 @@ export { default as Label } from "./components/ui//Label.svelte";
 export { default as Separator } from "./components/ui//Separator.svelte";
 export { default as Layout } from "./components/ui//Layout.svelte";
 export { default as Switch } from "./components/ui//Switch.svelte";
+export { default as ButtonGroup } from "./components/ui//ButtonGroup.svelte";

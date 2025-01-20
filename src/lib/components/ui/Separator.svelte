@@ -1,4 +1,3 @@
-<!-- src/lib/components/ui/Separator.svelte -->
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
@@ -11,7 +10,7 @@
 	let {
 		orientation = "horizontal",
 		thickness = "md",
-		color = "var(--border-color)",
+		color = "var(--iui-border-color)",
 		...restProps
 	}: Props = $props();
 </script>
@@ -25,7 +24,7 @@
 <style>
 	/* Estilos base del Separator */
 	.separator {
-		background-color: var(--border-color);
+		background-color: var(--iui-border-color);
 	}
 
 	/* Orientación */

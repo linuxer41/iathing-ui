@@ -1,4 +1,4 @@
-<!-- src/lib/components/ui/Container.svelte -->
+
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 

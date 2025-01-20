@@ -9,7 +9,6 @@
   </script>
    
   <div data-theme={theme}>
-    <!-- create button fro change theme -->
       <div>
         <button onclick={() => setTheme('light')}>
           Light
@@ -24,7 +23,7 @@
    
   <style>
     div {
-      background-color: var(--background-color);
+      background-color: var(--iui-background-primary);
       font-display: block;
       margin: 3em;
     }

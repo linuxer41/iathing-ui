@@ -1,19 +1,29 @@
-<!-- src/lib/components/ui/Checkbox.svelte -->
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
+		color?: "neutral" | "primary" | "secondary" | "danger" | "success" | "warning"; // Tipo de color
+		shape?: "square" | "rounded" | "theme"; // Forma del checkbox
+		size?: "sm" | "md" | "lg"; // Tamaño del checkbox
 		checked?: boolean;
 		disabled?: boolean;
-		elevated?: boolean;
-		size?: "sm" | "md" | "lg"; // Tamaño del checkbox
+		elevation?: 0 | 1 | 2 | 3; // Elevación del checkbox
 		onChange?: () => void;
 	}
 
-	let { checked = $bindable(false), disabled = false, elevated = true, size = "md", onChange = () => {}, ...restProps }: Props = $props();
+	let {
+		color = "neutral", // Color por defecto
+		shape = "theme", // Forma por defecto
+		size = "md", // Tamaño por defecto
+		checked = $bindable(false),
+		disabled = false,
+		elevation = 0,
+		onChange = () => {},
+		...restProps
+	}: Props = $props();
 </script>
 
-<label class="checkbox">
+<label class="checkbox color-{color}" >
 	<input
 		type="checkbox"
 		bind:checked
@@ -21,15 +31,51 @@
 		disabled={disabled}
 		class="input"
 	/>
-	<span class="checkmark size-{size} iathings-border-radius iathings-elevation" class:iathings-elevation={elevated} {...restProps}></span>
+	<span
+		class="checkmark size-{size} shape-{shape} "
+		style="box-shadow: var(--iui-elevation-{elevation});"
+		{...restProps}
+	></span>
 </label>
 
 <style lang="scss">
-	@import '../style/common.css';
+
+
+
 	.checkbox {
 		display: inline-flex;
 		align-items: center;
 		cursor: pointer;
+		position: relative;
+		--iui-checkbox-color: var(--iui-surface);
+		--iui-chemark-color: var(--iui-on-surface);
+	}
+
+	/* Variables de color */
+
+		.color-primary {
+		--iui-checkbox-color: var(--iui-primary);
+		--iui-chemark-color: var(--iui-background);
+	}
+
+	.color-secondary {
+		--iui-checkbox-color: var(--iui-secondary);
+		--iui-chemark-color: var(--iui-background);
+	}
+
+	.color-danger {
+		--iui-checkbox-color: var(--iui-danger);
+		--iui-chemark-color: var(--iui-background);
+	}
+
+	.color-success {
+		--iui-checkbox-color: var(--iui-success);
+		--iui-chemark-color: var(--iui-background);
+	}
+
+	.color-warning {
+		--iui-checkbox-color: var(--iui-warning);
+		--iui-chemark-color: var(--iui-background);
 	}
 
 	.input {
@@ -39,10 +85,13 @@
 	}
 
 	.checkmark {
-		border: 2px solid var(--border-color);
-		background-color: var(--background-color);
+		border: 2px solid hsl(var(--iui-checkbox-color));
+		background-color: hsl(var(--iui-checkbox-color) / 0.15);
 		transition: all 0.2s ease;
 		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	/* Tamaños */
@@ -61,16 +110,29 @@
 		height: 32px;
 	}
 
+	/* Formas */
+	.shape-theme {
+		border-radius: var(--iui-radius);
+	}
+	.shape-square {
+		border-radius: 0;
+	}
+
+	.shape-rounded {
+		border-radius: 999px;
+	}
+
+
 	/* Estilos cuando el checkbox está marcado */
 	.input:checked ~ .checkmark {
-		background-color: var(--primary-500);
-		border-color: var(--primary-500);
+		background-color: hsl(var(--iui-checkbox-color));
+		border-color: hsl(var(--iui-checkbox-color));
 	}
 
 	/* Estilos cuando el checkbox está deshabilitado */
 	.input:disabled ~ .checkmark {
-		background-color: var(--surface-color);
-		border-color: var(--border-color);
+		background-color: hsl(var(--iui-surface));
+		border-color: hsl(var(--iui-outline));
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
@@ -84,9 +146,10 @@
 		top: 50%;
 		width: 5px;
 		height: 10px;
-		border: solid white;
+		border: solid hsl(var(--iui-chemark-color));
 		border-width: 0 2px 2px 0;
 		transform: translate(-50%, -50%) rotate(45deg);
+		transition: all 0.2s ease;
 	}
 
 	/* Ajustar el tamaño del checkmark según el tamaño del checkbox */
@@ -108,4 +171,10 @@
 	.input:checked ~ .checkmark::after {
 		display: block;
 	}
+
+	/* Efecto de hover */
+	.checkmark:hover {
+		background-color: hsl(var(--iui-checkbox-color)/0.35);
+	}
+
 </style>

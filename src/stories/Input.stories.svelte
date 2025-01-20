@@ -8,7 +8,7 @@
     component: Input,
     tags: ['autodocs'],
     argTypes: {
-      type: { control: { type: 'select' }, options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'] },
+      // type: { control: { type: 'select' }, options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'] },
       placeholder: { control: { type: 'text' } },
       value: { control: { type: 'text' } },
       elevated: { control: { type: 'boolean' } },
@@ -16,5 +16,4 @@
   });
 </script>
 
-<!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
  <Story name="Checked" args={{ disabled: false, type: 'text', placeholder: 'placeholder', value: 'value' }}></Story>

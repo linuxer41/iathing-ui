@@ -1,6 +1,6 @@
 .docs-story{
-    background-color: var(--background-color) !important;
+    background-color: var(--iui-background-primary) !important;
 }
 .sb-show-main{
-    background-color: var(--background-color) !important;
+    background-color: var(--iui-background-primary) !important;
 }

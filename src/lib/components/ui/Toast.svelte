@@ -37,19 +37,19 @@
 	}
 
 	.toast-info {
-		background-color: var(--info-color);
+		background-color: var(--iui-info-color);
 	}
 
 	.toast-success {
-		background-color: var(--success-color);
+		background-color: var(--iui-success-color);
 	}
 
 	.toast-error {
-		background-color: var(--error-color);
+		background-color: var(--iui-danger-color);
 	}
 
 	.toast-warning {
-		background-color: var(--warning-color);
+		background-color: var(--iui-warning-color);
 	}
 
 	@keyframes fadeIn {

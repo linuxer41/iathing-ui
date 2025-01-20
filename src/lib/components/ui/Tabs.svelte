@@ -1,4 +1,3 @@
-<!-- src/lib/components/ui/Tabs.svelte -->
 <script lang="ts">
 	interface Tab {
 		label: string;
@@ -9,6 +8,7 @@
 		tabs: Tab[];
 		activeTab?: number;
 		size?: "sm" | "md" | "lg"; // Tamaño de las pestañas
+		color?: "primary" | "secondary" | "tertiary"; // Color de las pestañas
 		onChange?: (i: number) => void;
 	}
 
@@ -21,7 +21,7 @@
 			<button
 				class="tab size-{size}"
 				class:active={index === activeTab}
-				on:click={() => {
+				onclick={() => {
 					activeTab = index;
 					onChange(activeTab);
 				}}
@@ -44,7 +44,7 @@
 	.tabs-header {
 		display: flex;
 		gap: 8px;
-		border-bottom: 1px solid var(--border-color);
+		border-bottom: 1px solid hsl(var(--iui-outline));
 	}
 
 	.tab {
@@ -53,27 +53,27 @@
 		border: none;
 		cursor: pointer;
 		transition: all 0.2s ease;
-		color: var(--text-primary);
+		color: hsl(var(--iui-on-surface));
 		position: relative; /* Para posicionar el indicador */
-		border-radius: var(--border-radius);
+		border-radius: var(--iui-radius);
 	}
 
 	.tab:hover {
-		background-color: var(--surface-color);
+		background-color: hsl(var(--iui-surface) / 0.5);
 	}
 
 	.tab.active {
-		color: var(--primary-500);
+		color: hsl(var(--iui-primary));
 	}
 
 	.indicator {
 		position: absolute;
 		bottom: -1px; /* Alineado con el borde inferior del contenedor */
-		right: 10%;
+		left: 50%;
+		transform: translateX(-50%);
 		width: 80%;
-		/* transform: translateX(-10%); */
 		height: 2px;
-		background-color: var(--primary-500);
+		background-color: hsl(var(--iui-primary));
 		transition: opacity 0.2s ease;
 	}
 
@@ -103,5 +103,6 @@
 
 	.tabs-content {
 		padding: 1rem 0;
+		color: hsl(var(--iui-on-surface));
 	}
 </style>

@@ -11,8 +11,6 @@
     argTypes: {
       checked: { control: { type: 'boolean' } },
       disabled: { control: { type: 'boolean' } },
-      size: { control: { type: 'select' }, options: ['sm', 'md', 'lg'] },
-      elevated: { control: { type: 'boolean' } },
       onChange: { action: 'onChange' },
     },
     args: {
@@ -21,5 +19,4 @@
   });
 </script>
 
-<!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
  <Story name="Checked" args={{ disabled: false, checked: true }}></Story>
